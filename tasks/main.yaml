@@ -1,0 +1,20 @@
+- name: Make sure gpg is present (required for apt_key)
+  apt:
+    name: gpg
+    state: present
+  when: "{{ sonarr_install_gpg }}"
+
+- name: Add sonarr keys
+  apt_key:
+    keyserver: "{{ sonarr_key_server }}"
+    id: "{{ sonarr_key_id }}"
+
+- name: Add sonarr repo
+  apt_repository:
+    repo: "deb https://apt.sonarr.tv/{{ ansible_distribution|lower }} {{ ansible_distribution_release|lower }} main"
+    state: present
+
+- name: Install sonarr
+  apt:
+    name: sonarr
+    state: "{{ sonarr_version }}"
