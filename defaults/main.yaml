@@ -1,2 +1,4 @@
 sonarr_install_gpg: yes # Specifies if this role should ensure that gpg is present
 sonarr_version: latest # Sonarr version to install
+sonarr_distribution: "{{ ansible_distribution }}"
+sonarr_distribution_release: "{{ ansible_distribution_release }}"

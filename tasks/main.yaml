@@ -2,7 +2,7 @@
   apt:
     name: gpg
     state: present
-  when: "{{ sonarr_install_gpg }}"
+  when: sonarr_install_gpg
 
 - name: Add sonarr keys
   apt_key:
@@ -11,7 +11,7 @@
 
 - name: Add sonarr repo
   apt_repository:
-    repo: "deb https://apt.sonarr.tv/{{ ansible_distribution|lower }} {{ ansible_distribution_release|lower }} main"
+    repo: "deb https://apt.sonarr.tv/{{ sonarr_distribution|lower }} {{ sonarr_distribution_release|lower }} main"
     state: present
 
 - name: Install sonarr
