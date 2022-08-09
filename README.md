@@ -1,5 +1,12 @@
 # Sonarr role
-This is a simple ansible role that installs sonarr.
+This is a simple ansible role that installs sonarr on debian based systems.
+
+## Compatibility
+This role has only been tested on debian 11.
+The role uses apt modules, so debian based distributions should work.
+
+Note that the operating system and the code name are used to add the apt repository.
+So this will fail if you run this role on a system with an os or version that is not supported by the sonarr apt repo.
 
 ## Configuration
 As this role is pretty straight forward, it doesn't have that much configuration options.
